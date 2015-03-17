@@ -1,0 +1,79 @@
+<!doctype html>
+<html class="no-js" lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chinese (HK) Helper</title>
+    <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/vendor/modernizr.js"></script>
+    <script src="chinese_to_jyutping.js"></script>
+    <script src="chinese_to_mandarin.js"></script>
+  </head>
+  <body>
+    <div class="row">
+      <div class="large-12 columns">
+        <h1 class="text-center">Welcome</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-6 large-offset-3 columns">
+        <form id="search">
+          <div class="row collapse">
+            <div class="small-10 columns">
+              <input type="text" name="input" placeholder="Type Chinese Characters here" />
+            </div>
+            <div class="small-2 columns">
+              <input class="button postfix" type="submit" value="SEARCH" />
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-12 columns" id="result"></div>
+    </div>
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+      function query_chinese_to_cangjie3(q) {
+        return 'TODO';
+      }
+      function query_chinese_to_cangjie5(q) {
+        return 'TODO';
+      }
+      function query_chinese_to_jyutping(q) {
+        if (q in chinese_to_jyutping) {
+          return chinese_to_jyutping[q].join(',');
+        }
+        return 'NA';
+      }
+      function query_chinese_to_mandarin(q) {
+        if (q in chinese_to_mandarin) {
+          return chinese_to_mandarin[q].join(',');
+        }
+        return 'NA';
+      }
+      $('#search').submit(function(event){
+        var val = $('input').val();
+        val = $.trim(val);
+        var content = '<table><thead>';
+        content += '<tr><th>Character</th><th>Cangjie3</th><th>Cangjie5</th>';
+        content += '<th>Jyutping</th><th>Mandarin</th></tr></thead><tbody>';
+        for (var i = 0; i < val.length; i++) {
+          var q = val[i];
+          content += '<tr><td>'+q+'</td>';
+          content += '<td>'+query_chinese_to_cangjie3(q)+'</td>';
+          content += '<td>'+query_chinese_to_cangjie5(q)+'</td>';
+          content += '<td>'+query_chinese_to_jyutping(q)+'</td>';
+          content += '<td>'+query_chinese_to_mandarin(q)+'</td>';
+          content += '</tr>';
+        }
+        content += '</tbody></table>';
+        $('#result').html(content);
+        event.preventDefault();
+      });
+    </script>
+  </body>
+</html>
