@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="css/foundation.css" />
     <link rel="stylesheet" href="css/style.css" />
     <script src="js/vendor/modernizr.js"></script>
+    <script src="chinese_to_cangjie3.js"></script>
+    <script src="chinese_to_cangjie5.js"></script>
     <script src="chinese_to_jyutping.js"></script>
     <script src="chinese_to_mandarin.js"></script>
   </head>
@@ -38,10 +40,16 @@
     <script>
       $(document).foundation();
       function query_chinese_to_cangjie3(q) {
-        return 'TODO';
+        if (q in chinese_to_cangjie3) {
+          return chinese_to_cangjie3[q].join(',');
+        }
+        return 'NA';
       }
       function query_chinese_to_cangjie5(q) {
-        return 'TODO';
+        if (q in chinese_to_cangjie5) {
+          return chinese_to_cangjie5[q].join(',');
+        }
+        return 'NA';
       }
       function query_chinese_to_jyutping(q) {
         if (q in chinese_to_jyutping) {
