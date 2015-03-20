@@ -75,11 +75,14 @@
         var val = $('input').val();
         val = $.trim(val);
         var content = '<table><thead>';
-        content += '<tr><th>Character</th><th>Cangjie3</th><th>Cangjie5</th>';
-        content += '<th>Jyutping</th><th>Mandarin</th></tr></thead><tbody>';
+        content += '<tr><th>字</th><th>簡</th><th>繁</th>';
+        content += '<th>倉三</th><th>倉五</th>';
+        content += '<th>粵拼</th><th>漢拼</th></tr></thead><tbody>';
         for (var i = 0; i < val.length; i++) {
           var q = val[i];
           content += '<tr><td>'+q+'</td>';
+          content += '<td>'+'TODO'+'</td>';
+          content += '<td>'+'TODO'+'</td>';
           content += '<td>'+query_chinese_to_cangjie3(q)+'</td>';
           content += '<td>'+query_chinese_to_cangjie5(q)+'</td>';
           content += '<td>'+query_chinese_to_jyutping(q)+'</td>';
