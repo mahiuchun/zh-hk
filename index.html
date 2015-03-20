@@ -11,6 +11,8 @@
     <script src="chinese_to_cangjie5.js"></script>
     <script src="chinese_to_jyutping.js"></script>
     <script src="chinese_to_mandarin.js"></script>
+    <script src="chinese_to_simplified.js"></script>
+    <script src="chinese_to_traditional.js"></script>
   </head>
   <body>
     <div class="row">
@@ -71,6 +73,18 @@
         }
         return 'NA';
       }
+      function query_chinese_to_simplified(q) {
+        if (q in chinese_to_simplified) {
+          return chinese_to_simplified[q].join(',');
+        }
+        return 'NA';
+      }
+      function query_chinese_to_traditional(q) {
+        if (q in chinese_to_traditional) {
+          return chinese_to_traditional[q].join(',');
+        }
+        return 'NA';
+      }
       $('#search').submit(function(event){
         var val = $('input').val();
         val = $.trim(val);
@@ -81,8 +95,8 @@
         for (var i = 0; i < val.length; i++) {
           var q = val[i];
           content += '<tr><td>'+q+'</td>';
-          content += '<td>'+'TODO'+'</td>';
-          content += '<td>'+'TODO'+'</td>';
+          content += '<td>'+query_chinese_to_simplified(q)+'</td>';
+          content += '<td>'+query_chinese_to_traditional(q)+'</td>';
           content += '<td>'+query_chinese_to_cangjie3(q)+'</td>';
           content += '<td>'+query_chinese_to_cangjie5(q)+'</td>';
           content += '<td>'+query_chinese_to_jyutping(q)+'</td>';
