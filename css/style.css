@@ -1,3 +1,12 @@
 table {
   margin: auto;
 }
+
+#bottom ul {
+  display: table;
+  margin: auto;
+}
+
+#bottom ul li:first-child {
+  margin-left: 0px;
+}
