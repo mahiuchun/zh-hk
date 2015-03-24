@@ -89,6 +89,11 @@
       $('#search').submit(function(event){
         var val = $('input').val();
         val = $.trim(val);
+        if (!val) {
+          $('#result').html('');
+          event.preventDefault();
+          return;
+        }
         var content = '<table><thead>';
         content += '<tr><th>字</th><th>簡</th><th>繁</th>';
         content += '<th>倉三</th><th>倉五</th>';
