@@ -11,11 +11,13 @@ However Cangjie has many variants;
 so-called Cangjie 3 and Cangjie 5 are just two most popular variants.
 
 Many references do not bother to mention Cangjie variant.
-They usually refer to Cangjie 3, since this is the variant adopted by Microsoft
-Windows.
+They usually refer to Cangjie 3 in this case,
+since Cangjie 3 is adopted by Microsoft Windows.
 
-We provide Cangjie 5 reference also since it has notable adopters like Mac OS X,
-Chrome OS.
+We provide Cangjie 5 reference in addition to Cangjie 3.
+Cangjie 5 is recommended by Cangjie's original inventor,
+[Chu Bong-Foo](http://www.cbflabs.com)
+Cangjie 5 has notable adopters like Mac OS X, Chrome OS.
 
 ## The situation of Cantonese phonetic input
 Cantonese readings and romanization both suffer from fragmentation issues.
