@@ -10,10 +10,11 @@ Cangjie/Quick is widely available.
 However Cangjie has many variants;
 so-called Cangjie 3 and Cangjie 5 are just two most popular variants.
 
-Many references do not bother to mention Cangjie variant,
-they usually refer to Cangjie 3.
+Many references do not bother to mention Cangjie variant.
+They usually refer to Cangjie 3, since this is the variant adopted by Microsoft
+Windows.
 
-We provide Cangjie 5 reference also since it has notable adopters like OS X,
+We provide Cangjie 5 reference also since it has notable adopters like Mac OS X,
 Chrome OS.
 
 ## The situation of Cantonese phonetic input
