@@ -24,4 +24,5 @@ we just try to provide useful information.
 
 Currently we just provide Jyutping readings from
 [CUHK](http://humanum.arts.cuhk.edu.hk/Lexis/lexi-mf/).
-We also maintain a [list](wiki/CantoneseInput) of Cantonese input methods
+We also maintain a [list](https://github.com/mahiuchun/zh-hk/wiki/CantoneseInput)
+of Cantonese input methods
