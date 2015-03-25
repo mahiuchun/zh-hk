@@ -16,7 +16,7 @@ since Cangjie 3 is adopted by Microsoft Windows.
 
 We provide Cangjie 5 reference in addition to Cangjie 3.
 Cangjie 5 is recommended by Cangjie's original inventor,
-[Chu Bong-Foo](http://www.cbflabs.com)
+[Chu Bong-Foo](http://www.cbflabs.com).
 Cangjie 5 has notable adopters like Mac OS X, Chrome OS.
 
 ## The situation of Cantonese phonetic input
