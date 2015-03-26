@@ -1,117 +1,117 @@
 <!doctype html>
 <html class="no-js" lang="zh-Hant">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chinese (HK) Helper</title>
-    <link rel="stylesheet" href="css/foundation.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <script src="js/vendor/modernizr.js"></script>
-    <script src="chinese_to_cangjie3.js"></script>
-    <script src="chinese_to_cangjie5.js"></script>
-    <script src="chinese_to_jyutping.js"></script>
-    <script src="chinese_to_mandarin.js"></script>
-    <script src="chinese_to_simplified.js"></script>
-    <script src="chinese_to_traditional.js"></script>
-  </head>
-  <body>
-    <div class="row">
-      <div class="large-12 columns">
-        <h1 class="text-center">Welcome</h1>
-      </div>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chinese (HK) Helper</title>
+  <link rel="stylesheet" href="css/foundation.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/vendor/modernizr.js"></script>
+  <script src="chinese_to_cangjie3.js"></script>
+  <script src="chinese_to_cangjie5.js"></script>
+  <script src="chinese_to_jyutping.js"></script>
+  <script src="chinese_to_mandarin.js"></script>
+  <script src="chinese_to_simplified.js"></script>
+  <script src="chinese_to_traditional.js"></script>
+</head>
+<body>
+  <div class="row">
+    <div class="large-12 columns">
+      <h1 class="text-center">Welcome</h1>
     </div>
-    <div class="row">
-      <div class="large-6 large-offset-3 columns">
-        <form id="search">
-          <div class="row collapse">
-            <div class="small-10 columns">
-              <input lang="zh-Hant" type="text" name="input" placeholder="Type Chinese Characters here" />
-            </div>
-            <div class="small-2 columns">
-              <input class="button postfix" type="submit" value="SEARCH" />
-            </div>
+  </div>
+  <div class="row">
+    <div class="large-6 large-offset-3 columns">
+      <form id="search">
+        <div class="row collapse">
+          <div class="small-10 columns">
+            <input lang="zh-Hant" type="text" name="input" placeholder="Type Chinese Characters here" />
           </div>
-        </form>
-      </div>
+          <div class="small-2 columns">
+            <input class="button postfix" type="submit" value="SEARCH" />
+          </div>
+        </div>
+      </form>
     </div>
-    <div class="row">
-      <div class="large-12 columns" id="result"></div>
+  </div>
+  <div class="row">
+    <div class="large-12 columns" id="result"></div>
+  </div>
+  <div id="bottom" class="row">
+    <div class="large-12 columns">
+      <ul class="inline-list">
+        <li><a href="https://github.com/mahiuchun/zh-hk/">about</a></li>
+        <li><a href="https://github.com/mahiuchun/zh-hk/issues">feedback</a></li>
+      </ul>
     </div>
-    <div id="bottom" class="row">
-      <div class="large-12 columns">
-        <ul class="inline-list">
-          <li><a href="https://github.com/mahiuchun/zh-hk/">about</a></li>
-          <li><a href="https://github.com/mahiuchun/zh-hk/issues">feedback</a></li>
-        </ul>
-      </div>
-    </div>
-    <script src="js/vendor/jquery.js"></script>
-    <script src="js/foundation.min.js"></script>
-    <script>
-      $(document).foundation();
-      function query_chinese_to_cangjie3(q) {
-        if (q in chinese_to_cangjie3) {
-          return chinese_to_cangjie3[q].join(',');
-        }
-        return 'NA';
-      }
-      function query_chinese_to_cangjie5(q) {
-        if (q in chinese_to_cangjie5) {
-          return chinese_to_cangjie5[q].join(',');
-        }
-        return 'NA';
-      }
-      function query_chinese_to_jyutping(q) {
-        if (q in chinese_to_jyutping) {
-          return chinese_to_jyutping[q].join(',');
-        }
-        return 'NA';
-      }
-      function query_chinese_to_mandarin(q) {
-        if (q in chinese_to_mandarin) {
-          return chinese_to_mandarin[q].join(',');
-        }
-        return 'NA';
-      }
-      function query_chinese_to_simplified(q) {
-        if (q in chinese_to_simplified) {
-          return chinese_to_simplified[q].join(',');
-        }
-        return 'NA';
-      }
-      function query_chinese_to_traditional(q) {
-        if (q in chinese_to_traditional) {
-          return chinese_to_traditional[q].join(',');
-        }
-        return 'NA';
-      }
-      $('#search').submit(function(event){
-        var val = $('input').val();
-        val = $.trim(val);
-        if (!val) {
-          $('#result').html('');
-          event.preventDefault();
-          return;
-        }
-        var content = '<table><thead>';
-        content += '<tr><th>字</th><th>簡</th><th>繁</th>';
-        content += '<th>倉三</th><th>倉五</th>';
-        content += '<th>粵拼</th><th>漢拼</th></tr></thead><tbody>';
-        for (var i = 0; i < val.length; i++) {
-          var q = val[i];
-          content += '<tr><td>'+q+'</td>';
-          content += '<td>'+query_chinese_to_simplified(q)+'</td>';
-          content += '<td>'+query_chinese_to_traditional(q)+'</td>';
-          content += '<td>'+query_chinese_to_cangjie3(q)+'</td>';
-          content += '<td>'+query_chinese_to_cangjie5(q)+'</td>';
-          content += '<td>'+query_chinese_to_jyutping(q)+'</td>';
-          content += '<td>'+query_chinese_to_mandarin(q)+'</td>';
-          content += '</tr>';
-        }
-        content += '</tbody></table>';
-        $('#result').html(content);
-        event.preventDefault();
-      });
-    </script>
-  </body>
+  </div>
+  <script src="js/vendor/jquery.js"></script>
+  <script src="js/foundation.min.js"></script>
+  <script>
+  $(document).foundation();
+  function query_chinese_to_cangjie3(q) {
+    if (q in chinese_to_cangjie3) {
+      return chinese_to_cangjie3[q].join(',');
+    }
+    return 'NA';
+  }
+  function query_chinese_to_cangjie5(q) {
+    if (q in chinese_to_cangjie5) {
+      return chinese_to_cangjie5[q].join(',');
+    }
+    return 'NA';
+  }
+  function query_chinese_to_jyutping(q) {
+    if (q in chinese_to_jyutping) {
+      return chinese_to_jyutping[q].join(',');
+    }
+    return 'NA';
+  }
+  function query_chinese_to_mandarin(q) {
+    if (q in chinese_to_mandarin) {
+      return chinese_to_mandarin[q].join(',');
+    }
+    return 'NA';
+  }
+  function query_chinese_to_simplified(q) {
+    if (q in chinese_to_simplified) {
+      return chinese_to_simplified[q].join(',');
+    }
+    return 'NA';
+  }
+  function query_chinese_to_traditional(q) {
+    if (q in chinese_to_traditional) {
+      return chinese_to_traditional[q].join(',');
+    }
+    return 'NA';
+  }
+  $('#search').submit(function(event){
+    var val = $('input').val();
+    val = $.trim(val);
+    if (!val) {
+      $('#result').html('');
+      event.preventDefault();
+      return;
+    }
+    var content = '<table><thead>';
+    content += '<tr><th>字</th><th>簡</th><th>繁</th>';
+    content += '<th>倉三</th><th>倉五</th>';
+    content += '<th>粵拼</th><th>漢拼</th></tr></thead><tbody>';
+    for (var i = 0; i < val.length; i++) {
+      var q = val[i];
+      content += '<tr><td>'+q+'</td>';
+      content += '<td>'+query_chinese_to_simplified(q)+'</td>';
+      content += '<td>'+query_chinese_to_traditional(q)+'</td>';
+      content += '<td>'+query_chinese_to_cangjie3(q)+'</td>';
+      content += '<td>'+query_chinese_to_cangjie5(q)+'</td>';
+      content += '<td>'+query_chinese_to_jyutping(q)+'</td>';
+      content += '<td>'+query_chinese_to_mandarin(q)+'</td>';
+      content += '</tr>';
+    }
+    content += '</tbody></table>';
+    $('#result').html(content);
+    event.preventDefault();
+  });
+  </script>
+</body>
 </html>
