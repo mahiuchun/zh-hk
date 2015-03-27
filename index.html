@@ -42,8 +42,21 @@
       <ul class="inline-list">
         <li><a href="https://github.com/mahiuchun/zh-hk/">about</a></li>
         <li><a href="https://github.com/mahiuchun/zh-hk/issues">feedback</a></li>
+        <li><a href="#" data-reveal-id="myModal">settings</a></li>
       </ul>
     </div>
+  </div>
+  <div id="myModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+    <form>
+      <label>Romanization Scheme of Cantonese
+        <select id="canto-scheme">
+          <option value="jyutping">粵拼</option>
+          <option value="yale">耶魯</option>
+          <option value="hked">教院</option>
+        </select>
+      </label>
+    </form>
+    <a class="close-reveal-modal" aria-label="Close">&#215;</a>
   </div>
   <script src="js/vendor/jquery.js"></script>
   <script src="js/foundation.min.js"></script>
@@ -93,10 +106,12 @@
       event.preventDefault();
       return;
     }
+    var canto_scheme = localStorage.getItem("canto-scheme");
+    console.log(canto_scheme);
     var content = '<table><thead>';
     content += '<tr><th>字</th><th>簡</th><th>繁</th>';
     content += '<th>倉三</th><th>倉五</th>';
-    content += '<th>粵拼</th><th>漢拼</th></tr></thead><tbody>';
+    content += '<th>粵語</th><th>國語</th></tr></thead><tbody>';
     for (var i = 0; i < val.length; i++) {
       var q = val[i];
       content += '<tr><td>'+q+'</td>';
@@ -112,6 +127,9 @@
     $('#result').html(content);
     event.preventDefault();
   });
+  $('#canto-scheme').change(function(event){
+    localStorage.setItem("canto-scheme", this.value);
+  })
   </script>
 </body>
 </html>
