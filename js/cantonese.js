@@ -95,5 +95,5 @@ function cantonese_jyutping_to_hked(jp) {
         break;
     }
   }
-  return parts;
+  return parts.join('');
 }
