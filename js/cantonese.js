@@ -5,7 +5,6 @@ var jyutping_onsets = [
   'z', 'c', 's', 'gw',
   'kw', 'j', 'w'
 ];
-
 var jyutping_to_yale_onset = {
   'z': 'j',
   'c': 'ch',
@@ -56,14 +55,13 @@ var jyutping_to_sidneylau_final = {
   'yun': 'uen',
   'yut': 'uet'
 };
-// http://en.wikipedia.org/wiki/Unicode_subscripts_and_superscripts
 var jyutping_to_sidneylau_tones = {
-  '1': '\u00b9',
-  '2': '\u00b2',
-  '3': '\u00b3',
-  '4': '\u2074',
-  '5': '\u2075',
-  '6': '\u2076'
+  '1': '<sup>1°</sup>',
+  '2': '<sup>2</sup>',
+  '3': '<sup>3</sup>',
+  '4': '<sup>4</sup>',
+  '5': '<sup>5</sup>',
+  '6': '<sup>6</sup>'
 }
 
 function cantonese_parse_jyutping(jp) {
