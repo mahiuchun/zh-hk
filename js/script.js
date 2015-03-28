@@ -75,6 +75,10 @@ function render_result() {
             jplst[j] = cantonese_jyutping_to_hked(jplst[j]);
           }
           break;
+        case 'sidneylau':
+          for (var j = 0; j < jplst.length; j++) {
+            jplst[j] = cantonese_jyutping_to_hked(jplst[j]);
+          }
       }
     }
     var canto = jplst.join(',');

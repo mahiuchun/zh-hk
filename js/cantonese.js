@@ -33,6 +33,29 @@ var jyutping_to_hked_final = {
   'yun': 'yn',
   'yut': 'yt'
 };
+var jyutping_to_sidneylau_onset = {
+  'z': 'j',
+  'c': 'ch',
+  'j': 'y'
+};
+var jyutping_to_sidneylau_final = {
+  'aa': 'a',
+  'o': 'oh',
+  'ou': 'o',
+  'u': 'oo',
+  'ui': 'ooi',
+  'un': 'oon',
+  'ut': 'oot',
+  'oe': 'euh',
+  'oeng': 'eung',
+  'oek': 'euk',
+  'eoi': 'ui',
+  'eon': 'un',
+  'eot': 'ut',
+  'yu': 'ue',
+  'yun': 'uen',
+  'yut': 'uet'
+};
 
 function cantonese_parse_jyutping(jp) {
   var parts = ['', '', ''];
@@ -94,6 +117,17 @@ function cantonese_jyutping_to_hked(jp) {
         parts[2] = '9';
         break;
     }
+  }
+  return parts.join('');
+}
+
+function cantonese_jyutping_to_sidneylau(jp) {
+  var parts = cantonese_parse_jyutping(jp);
+  if (parts[0] in jyutping_to_sidneylau_onset) {
+    parts[0] = jyutping_to_sidneylau_onset[parts[0]];
+  }
+  if (parts[1] in jyutping_to_sidneylau_final) {
+    parts[1] = jyutping_to_sidneylau_final[parts[1]];
   }
   return parts.join('');
 }
