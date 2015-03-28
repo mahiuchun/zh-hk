@@ -1,15 +1,8 @@
 var query_string;
 
-function query_chinese_to_cangjie3(q) {
-  if (q in chinese_to_cangjie3) {
-    return chinese_to_cangjie3[q].join(',');
-  }
-  return 'NA';
-}
-
-function query_chinese_to_cangjie5(q) {
-  if (q in chinese_to_cangjie5) {
-    return chinese_to_cangjie5[q].join(',');
+function query_chinese_to_cangjie(q) {
+  if (q in chinese_to_cangjie) {
+    return chinese_to_cangjie[q].join(',');
   }
   return 'NA';
 }
@@ -58,9 +51,7 @@ function render_result() {
     content += '<tr><td>'+q+'</td>';
     content += '<td>'+query_chinese_to_simplified(q)+'</td>';
     content += '<td>'+query_chinese_to_traditional(q)+'</td>';
-    var cj3 = query_chinese_to_cangjie3(q);
-    var cj5 = query_chinese_to_cangjie5(q);
-    var cj = cangjie_merge(cj5, cj3);
+    var cj = query_chinese_to_cangjie(q);
     content += '<td>'+cangjie_convert(cj)+'</td>';
     var jplst = query_chinese_to_jyutping(q).split(',')
     if (jplst[0] !== 'NA') {

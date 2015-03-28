@@ -38,15 +38,3 @@ function cangjie_convert(cj) {
   }
   return result.join('');
 }
-
-function cangjie_merge(cj1, cj2) {
-  result = cj1.split(',');
-  cj2 = cj2.split(',');
-  for (var i = 0; i < cj2.length; i++) {
-    var e = cj2[i];
-    if ($.inArray(e, result)) {
-      result.push(e);
-    }
-  }
-  return result.join(',');
-}
