@@ -77,7 +77,7 @@ function render_result() {
           break;
         case 'sidneylau':
           for (var j = 0; j < jplst.length; j++) {
-            jplst[j] = cantonese_jyutping_to_hked(jplst[j]);
+            jplst[j] = cantonese_jyutping_to_sidneylau(jplst[j]);
           }
       }
     }

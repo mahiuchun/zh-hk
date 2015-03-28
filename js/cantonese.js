@@ -56,6 +56,15 @@ var jyutping_to_sidneylau_final = {
   'yun': 'uen',
   'yut': 'uet'
 };
+// http://en.wikipedia.org/wiki/Unicode_subscripts_and_superscripts
+var jyutping_to_sidneylau_tones = {
+  '1': '\u00b9',
+  '2': '\u00b2',
+  '3': '\u00b3',
+  '4': '\u2074',
+  '5': '\u2075',
+  '6': '\u2076'
+}
 
 function cantonese_parse_jyutping(jp) {
   var parts = ['', '', ''];
@@ -129,5 +138,6 @@ function cantonese_jyutping_to_sidneylau(jp) {
   if (parts[1] in jyutping_to_sidneylau_final) {
     parts[1] = jyutping_to_sidneylau_final[parts[1]];
   }
+  parts[2] = jyutping_to_sidneylau_tones[parts[2]];
   return parts.join('');
 }
