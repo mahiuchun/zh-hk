@@ -43,16 +43,16 @@ function render_result() {
   }
   var canto_scheme = localStorage.getItem('canto-scheme');
   var scheme_to_cname = {
-    'jyutping': '粵拼',
-    'yale': '耶魯',
-    'hked': '教院',
+    'jyutping': 'LSHK',
+    'yale': 'Yale',
+    'hked': '教院式',
     'sidneylau': '劉錫翔'
   };
   var content = '<table><thead>';
   content += '<tr><th>字</th><th>簡</th><th>繁</th>';
-  content += '<th>倉頡</th>';
-  content += '<th>粵語('+scheme_to_cname[canto_scheme]+')</th>';
-  content += '<th>國語</th></tr></thead><tbody>';
+  content += '<th>倉頡碼</th>';
+  content += '<th>廣東話('+scheme_to_cname[canto_scheme]+')</th>';
+  content += '<th>普通話</th></tr></thead><tbody>';
   for (var i = 0; i < val.length; i++) {
     var q = val[i];
     content += '<tr><td>'+q+'</td>';
