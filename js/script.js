@@ -58,17 +58,17 @@ function render_result() {
       switch (canto_scheme) {
         case 'yale':
           for (var j = 0; j < jplst.length; j++) {
-            jplst[j] = cantonese_jyutping_to_yale(jplst[j]);
+            jplst[j] = libcantonese.jyutping_to_yale(jplst[j]);
           }
           break;
         case 'hked':
           for (var j = 0; j < jplst.length; j++) {
-            jplst[j] = cantonese_jyutping_to_hked(jplst[j]);
+            jplst[j] = libcantonese.jyutping_to_hked(jplst[j]);
           }
           break;
         case 'sidneylau':
           for (var j = 0; j < jplst.length; j++) {
-            jplst[j] = cantonese_jyutping_to_sidneylau(jplst[j]);
+            jplst[j] = libcantonese.jyutping_to_sidneylau(jplst[j]);
           }
       }
     }
