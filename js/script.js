@@ -1,5 +1,12 @@
 var query_string;
 
+function query_chinese_to_big5(q) {
+  if (q in chinese_to_big5) {
+    return chinese_to_big5[q];
+  }
+  return 'NA';
+}
+
 function query_chinese_to_cangjie(q) {
   if (q in chinese_to_cangjie) {
     return chinese_to_cangjie[q].join(',');
@@ -50,16 +57,24 @@ function render_result() {
   };
   var content = '<table><thead>';
   content += '<tr><th>字</th><th>簡</th><th>繁</th>';
+  content += '<th>大五碼</th>';
   content += '<th>倉頡碼</th>';
   content += '<th>廣東話('+scheme_to_cname[canto_scheme]+')</th>';
   content += '<th>普通話</th></tr></thead><tbody>';
   for (var i = 0; i < val.length; i++) {
     var q = val[i];
-    content += '<tr><td>'+q+'</td>';
+    content += '<tr><td><a target="_blank" href="https://www.moedict.tw/'+q+'">'+q+'</a></td>';
     content += '<td>'+query_chinese_to_simplified(q)+'</td>';
     content += '<td>'+query_chinese_to_traditional(q)+'</td>';
-    var cj = query_chinese_to_cangjie(q);
-    content += '<td>'+cangjie_convert(cj)+'</td>';
+    var big5 = query_chinese_to_big5(q);
+    content += '<td>'+big5+'</td>';
+    var cj = cangjie_convert(query_chinese_to_cangjie(q));
+    if (big5 !== 'NA') {
+      content += '<td><a target="_blank" href="http://input.foruto.com/cjdict/Images/CJZD_JPG/'
+                 +big5+'.JPG">'+cj+'</a></td>';
+    } else {
+      content += '<td>'+cj+'</td>';
+    }
     var jplst = query_chinese_to_jyutping(q).split(',')
     if (jplst[0] !== 'NA') {
       switch (canto_scheme) {
@@ -80,7 +95,12 @@ function render_result() {
       }
     }
     var canto = jplst.join(',');
-    content += '<td>'+canto+'</td>';
+    if (big5 !== 'NA') {
+      content += '<td><a target="_blank" href="http://humanum.arts.cuhk.edu.hk/Lexis/lexi-can/search.php?q=%'
+                 +big5.substr(0, 2)+'%'+big5.substr(2)+'">'+canto+'</a></td>';
+    } else {
+      content += '<td>'+canto+'</td>';
+    }
     content += '<td>'+query_chinese_to_mandarin(q)+'</td>';
     content += '</tr>';
   }
